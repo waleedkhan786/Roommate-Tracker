@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import getDataFromLocalStorage from '../Utils/localStorageHelpers'
-import saveDataToLocalStorage  from '../Utils/localStorageHelpers'
+import {getDataFromLocalStorage, saveDataToLocalStorage} from '../Utils/localStorageHelpers.js'
 
 
 export const AppContext = createContext();
