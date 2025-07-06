@@ -1,4 +1,4 @@
-// Retrieves data from localStorage and parses it
+
 export const getDataFromLocalStorage = (key) => {
   const storedData = localStorage.getItem(key);
   try {
@@ -9,7 +9,7 @@ export const getDataFromLocalStorage = (key) => {
   }
 };
 
-// Stringifies and saves data under the given key
+
 export const saveDataToLocalStorage = (key, data) => {
   try {
     localStorage.setItem(key, JSON.stringify(data));

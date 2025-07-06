@@ -1,29 +1,29 @@
 export const calculateBalances = (expenses) => {
   const balances = {};
 
-  // Step 1: Go through each expense
+ 
   expenses.forEach((expense) => {
     const { amount, paidBy, splitWith } = expense;
     const perPersonShare = amount / splitWith.length;
 
-    // Initialize balances if needed
+   
     if (!balances[paidBy]) balances[paidBy] = 0;
 
-    // The payer gave money, so we add to their balance
+   
     balances[paidBy] += amount;
 
-    // Each person (including payer) owes their share
+   
     splitWith.forEach((person) => {
       if (!balances[person]) balances[person] = 0;
       balances[person] -= perPersonShare;
     });
   });
 
-  // Step 2: Convert balances into a list of "A owes B"
+ 
   const owes = [];
   const people = Object.keys(balances);
 
-  // Split into payers and payees
+
   const debtors = people
     .filter(p => balances[p] < 0)
     .map(p => ({ name: p, amount: -balances[p] }));
